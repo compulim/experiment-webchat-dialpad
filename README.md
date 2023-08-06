@@ -1,19 +1,20 @@
-## Your repository is almost ready
+# Dial pad input for Web Chat
 
-There are few more steps to enable GitHub Pages and continuous deployment.
+> Live demo at https://compulim.github.io/experiment-webchat-dialpad/.
 
-1. Enable GitHub Pages
-   1. Navigate to [Pages settings](../../settings/pages)
-   1. In the "Source" field, select "GitHub Actions"
-1. Trigger the deployment
-   1. [Modify and commit `App.tsx` to the `main` branch](../../edit/main/src/app/ui/App.tsx)
-   1. Check deployment workflow at [![Deploy static content to Pages](../../actions/workflows/static.yml/badge.svg)](../../actions/workflows/static.yml)
+Add dial pad to Web Chat with heavy focus on UX and mimicking real telephone.
 
-### GitHub Codespaces
+## Features
 
-You can set up prebuild to speed up Codespaces creation. The prebuilt image will pre-install all dependencies under `/node_modules/` with initial build.
+- Dial pad in 3x4 format, with rubies
+- Play DTMF using Web Audio API
+   - Realistic cross bar approach when playing DTMF
+- Pointer down on button will send immediately, just like a real telephone
 
-1. [Set up Codespaces prebuilds](../../settings/codespaces/prebuild_configurations/new)
-   1. Check prebuild workflow at [![Codespaces Prebuilds](../../actions/workflows/codespaces/create_codespaces_prebuilds/badge.svg)](../../actions/workflows/codespaces/create_codespaces_prebuilds)
+## To-do
 
-Once the prebuild action is completed, you can create a new prebuilt codespace.
+- Features
+   - Disable DTMF for certain inputs: no DTMF on mouse, and/or no DTMF on all types of input
+   - Add minimal DTMF duration: after click, must play at least 100 ms (configurable)
+- Bugs
+   - Investigate why stylus tap is slow on Edge
