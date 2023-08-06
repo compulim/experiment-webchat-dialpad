@@ -90,7 +90,7 @@ export default memo(function DialPad({ onButtonClick }: Props) {
   const handleButtonPoundPlayEnd = useCallback(() => handlePlayEnd('pound'), [setPlayingButtons]);
   const handleButtonPoundPlayStart = useCallback(() => handlePlayStart('pound'), [setPlayingButtons]);
 
-  // Playing individual tone is important. This mimick how telephones actually work when multiple buttons are pressed via a crossbar approach.
+  // Playing individual tone is important. This mimic how telephones actually work when multiple buttons are pressed via a crossbar approach.
   const shouldPlayOscillator697 = useMemo(() => setHasSome(playingButtons, ['1', '2', '3']), [playingButtons]);
   const shouldPlayOscillator770 = useMemo(() => setHasSome(playingButtons, ['4', '5', '6']), [playingButtons]);
   const shouldPlayOscillator852 = useMemo(() => setHasSome(playingButtons, ['7', '8', '9']), [playingButtons]);

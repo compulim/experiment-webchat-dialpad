@@ -45,7 +45,7 @@ export default memo(function DialPadButton({ button, onClick, onPlayStart, onPla
       window.addEventListener('pointercancel', handlePointerCancelOrUp);
       window.addEventListener('pointerup', handlePointerCancelOrUp);
 
-      // Mimick telephone so click are dispatched immediately.
+      // Mimic telephone so click are dispatched immediately.
       if (event.pointerType !== 'mouse') {
         onClickRef.current?.();
       }
@@ -66,7 +66,7 @@ export default memo(function DialPadButton({ button, onClick, onPlayStart, onPla
     [downPointerIdRef, onPlayEndRef, stopPlayDTMFRef]
   );
 
-  // To mimick telephone, we should dispatch clicks when we receive onPointerDown, instead of onClick.
+  // To mimic telephone, we should dispatch clicks when we receive onPointerDown, instead of onClick.
   // However, after dispatch clicks from touch, we need to prevent dispatching clicks again in onClick.
   // To prevent onClick firing for touches, we call preventDefault during onTouchEnd.
   const handleTouchEnd = useCallback<TouchEventHandler<HTMLButtonElement>>(event => event.preventDefault(), []);
