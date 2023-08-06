@@ -5,6 +5,7 @@
   background-color: #DDD;
   border-radius: 100%;
   border: solid 1px #EEE;
+  color: inherit;
   display: flex;
   flex-direction: column;
   height: var(--dial-pad-button-size);

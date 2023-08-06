@@ -122,58 +122,58 @@ export default memo(function DialPad({ onButtonClick }: Props) {
         <DialPadButton
           button="2"
           onClick={handleButton2Click}
-          ruby="ABC"
           onPlayEnd={handleButton2PlayEnd}
           onPlayStart={handleButton2PlayStart}
+          ruby="ABC"
         />
         <DialPadButton
           button="3"
           onClick={handleButton3Click}
-          ruby="DEF"
           onPlayEnd={handleButton3PlayEnd}
           onPlayStart={handleButton3PlayStart}
+          ruby="DEF"
         />
         <DialPadButton
           button="4"
           onClick={handleButton4Click}
-          ruby="GHI"
           onPlayEnd={handleButton4PlayEnd}
           onPlayStart={handleButton4PlayStart}
+          ruby="GHI"
         />
         <DialPadButton
           button="5"
           onClick={handleButton5Click}
-          ruby="JKL"
           onPlayEnd={handleButton5PlayEnd}
           onPlayStart={handleButton5PlayStart}
+          ruby="JKL"
         />
         <DialPadButton
           button="6"
           onClick={handleButton6Click}
-          ruby="MNO"
           onPlayEnd={handleButton6PlayEnd}
           onPlayStart={handleButton6PlayStart}
+          ruby="MNO"
         />
         <DialPadButton
           button="7"
           onClick={handleButton7Click}
-          ruby="PQRS"
           onPlayEnd={handleButton7PlayEnd}
           onPlayStart={handleButton7PlayStart}
+          ruby="PQRS"
         />
         <DialPadButton
           button="8"
           onClick={handleButton8Click}
-          ruby="TUV"
           onPlayEnd={handleButton8PlayEnd}
           onPlayStart={handleButton8PlayStart}
+          ruby="TUV"
         />
         <DialPadButton
           button="9"
           onClick={handleButton9Click}
-          ruby="WXYZ"
           onPlayEnd={handleButton9PlayEnd}
           onPlayStart={handleButton9PlayStart}
+          ruby="WXYZ"
         />
         <DialPadButton
           button="star"
@@ -186,6 +186,7 @@ export default memo(function DialPad({ onButtonClick }: Props) {
           onClick={handleButton0Click}
           onPlayEnd={handleButton0PlayEnd}
           onPlayStart={handleButton0PlayStart}
+          ruby="OPER"
         />
         <DialPadButton
           button="pound"
