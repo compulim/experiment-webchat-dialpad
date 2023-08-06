@@ -2,7 +2,7 @@
   border: solid 1px #eee;
   border-radius: 4px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-  height: calc(100vh - 20px);
+  height: calc(100% - 20px);
   left: 10px;
   overflow: hidden;
   position: fixed;
