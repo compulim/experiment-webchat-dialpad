@@ -17,8 +17,12 @@
     "start:typescript": "npm run build:typescript -- --watch"
   },
   "dependencies": {
+    "botframework-webchat": "^4.15.8",
+    "punycode": "^2.3.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-wrap-with": "^0.0.2",
+    "use-ref-from": "^0.0.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.18",

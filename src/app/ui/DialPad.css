@@ -1,0 +1,17 @@
+.dial-pad {
+  --dial-pad-button-size: 40px;
+  --dial-pad-ruby-font-size: xx-small;
+  --dial-pad-text-font-size: large;
+
+  display: flex;
+  justify-content: center;
+}
+
+.dial-pad__box {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  justify-items: center;
+  padding: 10px;
+}

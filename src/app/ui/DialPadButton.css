@@ -1,0 +1,22 @@
+.dial-pad-button {
+  appearance: none;
+  background-color: #DDD;
+  border: solid 1px #EEE;
+  border-radius: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: var(--dial-pad-button-size);
+  position: relative;
+  width: var(--dial-pad-button-size);
+}
+
+.dial-pad-button__ruby {
+  color: #666;
+  font-size: var(--dial-pad-ruby-font-size);
+}
+
+.dial-pad-button__text {
+  font-size: var(--dial-pad-text-font-size);
+}
