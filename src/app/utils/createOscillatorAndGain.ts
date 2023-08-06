@@ -2,18 +2,22 @@ export default function createOscillatorAndGain(
   frequency: number,
   gain: number = 0.1
 ): [() => void, () => void, () => void] {
-  const audioContext = new AudioContext();
-
-  const gainNode = audioContext.createGain();
-
-  gainNode.connect(audioContext.destination);
-  gainNode.gain.value = gain;
-
+  let audioContext: AudioContext;
+  let gainNode: GainNode;
   let oscillatorNode: OscillatorNode | undefined;
 
   return [
     () => {
       if (!oscillatorNode) {
+        if (!audioContext) {
+          audioContext = new AudioContext();
+
+          gainNode = audioContext.createGain();
+
+          gainNode.connect(audioContext.destination);
+          gainNode.gain.value = gain;
+        }
+
         oscillatorNode = audioContext.createOscillator();
 
         oscillatorNode.frequency.value = frequency;
@@ -25,6 +29,6 @@ export default function createOscillatorAndGain(
       oscillatorNode?.stop();
       oscillatorNode = undefined;
     },
-    () => audioContext.close()
+    () => audioContext?.close()
   ];
 }
