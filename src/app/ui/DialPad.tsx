@@ -41,7 +41,7 @@ function setHasSome<T>(set: Set<T>, anyOf: Iterable<T>): boolean {
 }
 
 function DialPadWrapper({ children, isHorizontal }: { children: ReactNode, isHorizontal: boolean }) {
-  return isHorizontal ? <BasicFilm styleSet={ myStyleSet }>{children}</BasicFilm> : <div className="DialPad">{children}</div>;
+  return isHorizontal ? <BasicFilm styleSet={ myStyleSet }>{children}</BasicFilm> : <div className="dial-pad__box">{children}</div>;
 }
 
 export default memo(function DialPad({ onButtonClick, isHorizontal }: Props) {
