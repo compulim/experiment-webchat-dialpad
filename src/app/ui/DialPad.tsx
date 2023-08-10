@@ -12,7 +12,9 @@ import useOscillatorAndGain from '../hooks/useOscillatorAndGain';
 const originalStyleSet = createBasicStyleSet();
 const myStyleSet = {
   ...originalStyleSet,
-  scrollBarHandler: originalStyleSet.scrollBarHandler + ' my-scroll-bar-class'
+  showScrollBar: true,
+  showDots: false,
+  showFlipper: false,
 };
 
 type Props = {
