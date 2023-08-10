@@ -41,12 +41,7 @@ function setHasSome<T>(set: Set<T>, anyOf: Iterable<T>): boolean {
 
 function DialPadWrapper({ children, isHorizontal }: { children: ReactNode, isHorizontal: boolean }) {
   return isHorizontal ? 
-    <BasicFilm showScrollBar={true}
-      showDots={false}
-      showFlipper={false} 
-      styleSet={ myStyleSet }>
-        {children}
-    </BasicFilm> 
+    <BasicFilm styleSet={ myStyleSet } width={360}>{children}</BasicFilm> 
     : <div className="dial-pad__box">{children}</div>;
 }
 
