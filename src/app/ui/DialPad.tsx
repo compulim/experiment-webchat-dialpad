@@ -12,9 +12,6 @@ import useOscillatorAndGain from '../hooks/useOscillatorAndGain';
 const originalStyleSet = createBasicStyleSet();
 const myStyleSet = {
   ...originalStyleSet,
-  showScrollBar: true,
-  showDots: false,
-  showFlipper: false,
 };
 
 type Props = {
@@ -43,7 +40,14 @@ function setHasSome<T>(set: Set<T>, anyOf: Iterable<T>): boolean {
 }
 
 function DialPadWrapper({ children, isHorizontal }: { children: ReactNode, isHorizontal: boolean }) {
-  return isHorizontal ? <BasicFilm styleSet={ myStyleSet }>{children}</BasicFilm> : <div className="dial-pad__box">{children}</div>;
+  return isHorizontal ? 
+    <BasicFilm showScrollBar={true}
+      showDots={false}
+      showFlipper={false} 
+      styleSet={ myStyleSet }>
+        {children}
+    </BasicFilm> 
+    : <div className="dial-pad__box">{children}</div>;
 }
 
 export default memo(function DialPad({ onButtonClick, isHorizontal }: Props) {
