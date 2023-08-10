@@ -24,8 +24,8 @@ const ChatCore = memo(function ChatCore() {
 
   const handleResize = useCallback(() => {
     if (webchatRef.current) {
-      const { width } = webchatRef.current.getBoundingClientRect();
-      setIsHorizontal(width < 500);
+      const { height } = webchatRef.current.getBoundingClientRect();
+      setIsHorizontal( height < 400);
     }
   }, []);
 

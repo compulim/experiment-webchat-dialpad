@@ -2,12 +2,18 @@ import './DialPad.css';
 
 import { ReactNode, memo, useCallback, useMemo, useState } from 'react';
 import { useRefFrom } from 'use-ref-from';
-import BasicFilm from 'react-film';
+import BasicFilm, {createBasicStyleSet} from 'react-film';
 
 import DialPadButton from './DialPadButton';
 
 import { type DTMFButton } from '../types/DTMFButton';
 import useOscillatorAndGain from '../hooks/useOscillatorAndGain';
+
+const originalStyleSet = createBasicStyleSet();
+const myStyleSet = {
+  ...originalStyleSet,
+  scrollBarHandler: originalStyleSet.scrollBarHandler + ' my-scroll-bar-class'
+};
 
 type Props = {
   onButtonClick: (button: DTMFButton) => void;
@@ -35,7 +41,7 @@ function setHasSome<T>(set: Set<T>, anyOf: Iterable<T>): boolean {
 }
 
 function DialPadWrapper({ children, isHorizontal }: { children: ReactNode, isHorizontal: boolean }) {
-  return isHorizontal ? <BasicFilm height={60}>{children}</BasicFilm> : <div className="DialPad">{children}</div>;
+  return isHorizontal ? <BasicFilm styleSet={ myStyleSet }>{children}</BasicFilm> : <div className="DialPad">{children}</div>;
 }
 
 export default memo(function DialPad({ onButtonClick, isHorizontal }: Props) {
