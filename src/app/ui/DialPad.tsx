@@ -111,7 +111,7 @@ export default memo(function DialPad({ onButtonClick }: Props) {
   useMemo(() => (shouldPlayOscillator1477 ? startOscillator1477() : stopOscillator1477()), [shouldPlayOscillator1477]);
 
   return (
-    <div className="dial-pad">
+    <div className="dial-pad" aria-label="dial pad">
       <div className="dial-pad__box">
         <DialPadButton
           button="1"

@@ -82,6 +82,16 @@ export default memo(function DialPadButton({ button, onClick, onPlayStart, onPla
 
   const text = useMemo(() => (button === 'star' ? '\u2217' : button === 'pound' ? '#' : button), [button]);
 
+  const ariaLabel = useMemo(() => {
+    if (button === 'star') {
+      return 'dial pad, star';
+    } else if (button === 'pound') {
+      return 'dial pad, pound';
+    } else {
+      return `dial pad, number ${button}`;
+    }
+  }, [button]);
+
   return (
     <button
       className="dial-pad-button"
@@ -90,6 +100,7 @@ export default memo(function DialPadButton({ button, onClick, onPlayStart, onPla
       onPointerDown={handlePointerDown}
       onTouchEnd={handleTouchEnd}
       type="button"
+      aria-label={ariaLabel}
     >
       <span className="dial-pad-button__text">{text}</span>
       {!!ruby && <ruby className="dial-pad-button__ruby">{ruby}</ruby>}
