@@ -1,6 +1,6 @@
 import './WebChatWithDialPad.css';
 
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useEffect, useRef, useState } from 'react';
 import { Components, hooks } from 'botframework-webchat';
 import { wrapWith } from 'react-wrap-with';
 
@@ -10,6 +10,7 @@ const { BasicConnectivityStatus, BasicSendBox, BasicToaster, BasicTranscript, Co
 const { useSendMessage } = hooks;
 
 const ChatCore = memo(function ChatCore() {
+  const webchatRef = useRef<HTMLDivElement>(null);
   const sendMessage = useSendMessage();
 
   const handleDialPadButtonClick = useCallback<(button: string) => void>(
@@ -19,12 +20,31 @@ const ChatCore = memo(function ChatCore() {
     [sendMessage]
   );
 
+  const [isHorizontal, setIsHorizontal] = useState(false);
+
+  const handleResize = useCallback(() => {
+    if (webchatRef.current) {
+      const { width } = webchatRef.current.getBoundingClientRect();
+      setIsHorizontal(width < 500);
+    }
+  }, []);
+
+  useEffect(() => {
+    const resizeObserver = new ResizeObserver(handleResize);
+    if (webchatRef.current) {
+      resizeObserver.observe(webchatRef.current);
+    }
+    return () => {
+      resizeObserver.disconnect();
+    };
+  }, [handleResize]);
+
   return (
-    <div className="chat">
+    <div className="chat" ref={webchatRef}>
       <BasicToaster />
       <BasicTranscript className="chat__transcript" />
       <BasicConnectivityStatus />
-      <DialPad onButtonClick={handleDialPadButtonClick} />
+      <DialPad onButtonClick={handleDialPadButtonClick} isHorizontal={isHorizontal}/>
       <BasicSendBox />
     </div>
   );

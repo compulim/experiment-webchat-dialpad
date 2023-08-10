@@ -1,7 +1,8 @@
 import './DialPad.css';
 
-import { memo, useCallback, useMemo, useState } from 'react';
+import { ReactNode, memo, useCallback, useMemo, useState } from 'react';
 import { useRefFrom } from 'use-ref-from';
+import BasicFilm from 'react-film';
 
 import DialPadButton from './DialPadButton';
 
@@ -10,6 +11,7 @@ import useOscillatorAndGain from '../hooks/useOscillatorAndGain';
 
 type Props = {
   onButtonClick: (button: DTMFButton) => void;
+  isHorizontal: boolean;
 };
 
 const GAIN = 0.003;
@@ -32,7 +34,11 @@ function setHasSome<T>(set: Set<T>, anyOf: Iterable<T>): boolean {
   return false;
 }
 
-export default memo(function DialPad({ onButtonClick }: Props) {
+function DialPadWrapper({ children, isHorizontal }: { children: ReactNode, isHorizontal: boolean }) {
+  return isHorizontal ? <BasicFilm height={60}>{children}</BasicFilm> : <div className="DialPad">{children}</div>;
+}
+
+export default memo(function DialPad({ onButtonClick, isHorizontal }: Props) {
   const onButtonClickRef = useRefFrom(onButtonClick);
   const [playingButtons, setPlayingButtons] = useState<Set<DTMFButton>>(new Set());
   const [startOscillator697, stopOscillator697] = useOscillatorAndGain(697, GAIN);
@@ -112,7 +118,7 @@ export default memo(function DialPad({ onButtonClick }: Props) {
 
   return (
     <div className="dial-pad" aria-label="dial pad">
-      <div className="dial-pad__box">
+      <DialPadWrapper isHorizontal={isHorizontal}>
         <DialPadButton
           button="1"
           onClick={handleButton1Click}
@@ -194,7 +200,7 @@ export default memo(function DialPad({ onButtonClick }: Props) {
           onPlayEnd={handleButtonPoundPlayEnd}
           onPlayStart={handleButtonPoundPlayStart}
         />
-      </div>
+      </DialPadWrapper>
     </div>
   );
 });
