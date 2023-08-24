@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import React, { useMemo } from 'react';
 import {
     FilmStrip, 
-    Flipper, 
     useStyleSetClassNames,
     useStyleOptions,
     useScrolling,
@@ -12,6 +11,7 @@ import {
     useHeight,
     useDir,
 } from 'react-film';
+import { Flipper } from './Flipper';
 
 const BasicFilm = ({ children, className }) => {
   const [dir] = useDir();
@@ -24,9 +24,7 @@ const BasicFilm = ({ children, className }) => {
     {
       flipperBlurFocusOnClick,
       leftFlipperAriaLabel,
-      leftFlipperText,
       rightFlipperAriaLabel,
-      rightFlipperText,
       showFlipper,
     }
   ] = useStyleOptions();
@@ -40,15 +38,11 @@ const BasicFilm = ({ children, className }) => {
         style={contentStyle}
       >
         {!!numItems && scrollBarWidth !== '100%' && !!showFlipper && (
-          <Flipper aria-label={leftFlipperAriaLabel} blurFocusOnClick={flipperBlurFocusOnClick} mode="left">
-            {leftFlipperText}
-          </Flipper>
+          <Flipper aria-label={leftFlipperAriaLabel} blurFocusOnClick={flipperBlurFocusOnClick} mode="left"/>
         )}
         <FilmStrip>{children}</FilmStrip>
         {!!numItems && scrollBarWidth !== '100%' && !!showFlipper && (
-          <Flipper aria-label={rightFlipperAriaLabel} blurFocusOnClick={flipperBlurFocusOnClick} mode="right">
-            {rightFlipperText}
-          </Flipper>
+          <Flipper aria-label={rightFlipperAriaLabel} blurFocusOnClick={flipperBlurFocusOnClick} mode="right"/>
         )}
       </div>
     </div>
