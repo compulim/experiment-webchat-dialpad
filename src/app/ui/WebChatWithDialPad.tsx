@@ -20,7 +20,7 @@ const ChatCore = memo(function ChatCore() {
     [sendMessage]
   );
 
-  const [isHorizontal, setIsHorizontal] = useState(true);
+  const [isHorizontal, setIsHorizontal] = useState(false);
 
   const handleResize = useCallback(() => {
     if (webchatRef.current) {
@@ -44,7 +44,7 @@ const ChatCore = memo(function ChatCore() {
       <BasicToaster />
       <BasicTranscript className="chat__transcript" />
       <BasicConnectivityStatus />
-      <DialPad onButtonClick={handleDialPadButtonClick} isHorizontal={isHorizontal}/>
+      <DialPad onButtonClick={handleDialPadButtonClick} isHorizontal={!isHorizontal}/>
       <BasicSendBox />
     </div>
   );
