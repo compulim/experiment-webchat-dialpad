@@ -2,10 +2,8 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React, { useMemo } from 'react';
 import {
-    Dots, 
     FilmStrip, 
     Flipper, 
-    ScrollBar, 
     useStyleSetClassNames,
     useStyleOptions,
     useScrolling,
@@ -29,13 +27,11 @@ const BasicFilm = ({ children, className }) => {
       leftFlipperText,
       rightFlipperAriaLabel,
       rightFlipperText,
-      showDots,
       showFlipper,
-      showScrollBar
     }
   ] = useStyleOptions();
 
-  const contentStyle = useMemo(() => ({ height }), [height]);
+  const contentStyle = useMemo(() => ({ height: 48, width: 360 }), [height]);
 
   return (
     <div className={classNames(rootClassName, (className || '') + '')} dir={dir}>
@@ -54,9 +50,7 @@ const BasicFilm = ({ children, className }) => {
             {rightFlipperText}
           </Flipper>
         )}
-        {!!numItems && scrollBarWidth !== '100%' && !!showScrollBar && <ScrollBar />}
       </div>
-      {!!numItems && scrollBarWidth !== '100%' && !!showDots && <Dots />}
     </div>
   );
 };

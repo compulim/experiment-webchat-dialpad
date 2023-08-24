@@ -1,7 +1,7 @@
 .dial-pad {
   --dial-pad-button-size: 60px;
   --dial-pad-ruby-font-size: 10px;
-  --dial-pad-text-font-size: 24px;
+  --dial-pad-text-font-size: 20px;
 
   align-items: center;
   background: #FAF9F8;
