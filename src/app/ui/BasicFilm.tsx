@@ -1,16 +1,27 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
+    Dots, 
     FilmStrip, 
     Flipper, 
+    ScrollBar, 
+    useStyleSetClassNames,
     useStyleOptions,
     useScrolling,
-    Composer
+    useScrollBarWidth,
+    useNumItems,
+    useHeight,
+    useDir
 } from 'react-film';
 
 const BasicFilm = ({ children, className }) => {
+  const [dir] = useDir();
+  const [height] = useHeight();
+  const [numItems] = useNumItems();
+  const [scrollBarWidth] = useScrollBarWidth();
   const [scrolling] = useScrolling();
+  const [{ root: rootClassName }] = useStyleSetClassNames();
   const [
     {
       flipperBlurFocusOnClick,
@@ -18,29 +29,39 @@ const BasicFilm = ({ children, className }) => {
       leftFlipperText,
       rightFlipperAriaLabel,
       rightFlipperText,
+      showDots,
       showFlipper,
+      showScrollBar
     }
   ] = useStyleOptions();
 
-  const contentStyle = { height: 100 };
+  const contentStyle = useMemo(() => ({ height }), [height]);
 
   return (
-    <Composer numItems={ React.Children.count(children) }>
+    <div className={classNames(rootClassName, (className || '') + '')} dir={dir}>
       <div
         className={classNames('react-film__main', { 'react-film__main--scrolling': scrolling })}
         style={contentStyle}
       >
-        <Flipper aria-label={leftFlipperAriaLabel} blurFocusOnClick={flipperBlurFocusOnClick} mode="left">
-          {leftFlipperText}
-        </Flipper>
+        {!!numItems && scrollBarWidth !== '100%' && !!showFlipper && (
+          <Flipper aria-label={leftFlipperAriaLabel} blurFocusOnClick={flipperBlurFocusOnClick} mode="left">
+            {leftFlipperText}
+          </Flipper>
+        )}
         <FilmStrip>{children}</FilmStrip>
-        <Flipper aria-label={rightFlipperAriaLabel} blurFocusOnClick={flipperBlurFocusOnClick} mode="right">
-          {rightFlipperText}
-        </Flipper>
+        {!!numItems && scrollBarWidth !== '100%' && !!showFlipper && (
+          <Flipper aria-label={rightFlipperAriaLabel} blurFocusOnClick={flipperBlurFocusOnClick} mode="right">
+            {rightFlipperText}
+          </Flipper>
+        )}
+        {!!numItems && scrollBarWidth !== '100%' && !!showScrollBar && <ScrollBar />}
       </div>
-    </Composer>
+      {!!numItems && scrollBarWidth !== '100%' && !!showDots && <Dots />}
+    </div>
   );
 };
+
+// TODO: Move from styleSet to styleSheet.
 
 BasicFilm.defaultProps = {
   children: undefined,

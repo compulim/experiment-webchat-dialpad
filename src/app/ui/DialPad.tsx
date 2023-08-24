@@ -1,7 +1,8 @@
 import './DialPad.css';
 
-import { ReactNode, memo, useCallback, useMemo, useState } from 'react';
+import React, { ReactNode, memo, useCallback, useMemo, useState } from 'react';
 import { useRefFrom } from 'use-ref-from';
+import { Composer } from 'react-film';
 
 import BasicFilm from './BasicFilm';
 import DialPadButton from './DialPadButton';
@@ -35,8 +36,8 @@ function setHasSome<T>(set: Set<T>, anyOf: Iterable<T>): boolean {
 }
 
 function DialPadWrapper({ children, isHorizontal }: { children: ReactNode, isHorizontal: boolean }) {
-  return !isHorizontal ? 
-    <BasicFilm>{children}</BasicFilm> 
+  return !isHorizontal ?
+    <Composer numItems={ React.Children.count(children) }><BasicFilm>{children}</BasicFilm></Composer>  
     : <div className="dial-pad__box">{children}</div>;
 }
 
