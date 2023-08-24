@@ -40,9 +40,14 @@ const HorizontalWrapper = ({ children }) =>
       <FilmStrip>
         { children }
       </FilmStrip>
+      <ScrollBar />
       <Flipper mode="left">&lt;</Flipper>
       <Flipper mode="right">&gt;</Flipper>
     </div>
+    <Dots>
+      { () => '.' }
+    </Dots>
+    <AutoCenter />
   </Composer>
 
 function DialPadWrapper({ children, isHorizontal }: { children: ReactNode, isHorizontal: boolean }) {
