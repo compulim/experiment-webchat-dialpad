@@ -104,7 +104,7 @@ export default memo(function DialPadButton({ button, onClick, onPlayStart, onPla
       aria-label={ariaLabel}
     >
       <span className={`dial-pad-button__text${isHorizontal?' dial-pad-button-horizontal__text':''}`}>{text}</span>
-      {!!isHorizontal && !!ruby && <ruby className="dial-pad-button__ruby">{ruby}</ruby>}
+      {!isHorizontal && !!ruby && <ruby className="dial-pad-button__ruby">{ruby}</ruby>}
     </button>
   );
 });
