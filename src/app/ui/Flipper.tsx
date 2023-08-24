@@ -31,7 +31,7 @@ export const Flipper = ({ 'aria-label': ariaLabel, blurFocusOnClick, mode }) => 
     [left, scrollOneLeft, scrollOneRight]
   );
 
-  let hide;
+  let hide: boolean;
 
   if (dir === 'rtl') {
     if (left) {
@@ -47,6 +47,10 @@ export const Flipper = ({ 'aria-label': ariaLabel, blurFocusOnClick, mode }) => 
     }
   }
 
+  if (hide) {
+    return null;
+  }
+  
   return (
     <button
       aria-label={ariaLabel || (left ? 'left' : 'right')}
