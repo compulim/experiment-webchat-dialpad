@@ -16,13 +16,14 @@ import { type DTMFButton } from '../types/DTMFButton';
 
 type Props = {
   button: DTMFButton;
+  isHorizontal: boolean;
   onClick?: () => void;
   onPlayEnd?: () => void;
   onPlayStart?: () => void;
   ruby?: string;
 };
 
-export default memo(function DialPadButton({ button, onClick, onPlayStart, onPlayEnd, ruby }: Props) {
+export default memo(function DialPadButton({ button, onClick, onPlayStart, onPlayEnd, ruby, isHorizontal }: Props) {
   const downPointerIdRef = useRef<number>();
   const onClickRef = useRefFrom(onClick);
   const onPlayEndRef = useRefFrom(onPlayEnd);
@@ -94,7 +95,7 @@ export default memo(function DialPadButton({ button, onClick, onPlayStart, onPla
 
   return (
     <button
-      className="dial-pad-button"
+      className={`dial-pad-button${isHorizontal?' dial-pad-button-horizontal':''}`}
       onClick={handleClick}
       onContextMenu={handleContextMenu}
       onPointerDown={handlePointerDown}
@@ -102,8 +103,8 @@ export default memo(function DialPadButton({ button, onClick, onPlayStart, onPla
       type="button"
       aria-label={ariaLabel}
     >
-      <span className="dial-pad-button__text">{text}</span>
-      {!!ruby && <ruby className="dial-pad-button__ruby">{ruby}</ruby>}
+      <span className={`dial-pad-button__text${isHorizontal?' dial-pad-button-horizontal__text':''}`}>{text}</span>
+      {!!isHorizontal && !!ruby && <ruby className="dial-pad-button__ruby">{ruby}</ruby>}
     </button>
   );
 });

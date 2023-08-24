@@ -17,6 +17,11 @@
   width: var(--dial-pad-button-size);
 }
 
+.dial-pad-button-horizontal {
+  height: var(--dial-pad-button-horizontal-size);
+  width: var(--dial-pad-button-horizontal-size);
+}
+
 .dial-pad-button__ruby {
   color: #666;
   font-size: var(--dial-pad-ruby-font-size);
@@ -24,4 +29,8 @@
 
 .dial-pad-button__text {
   font-size: var(--dial-pad-text-font-size);
+}
+
+.dial-pad-button-horizontal__text {
+  font-size: var(--dial-pad-text-font-horizontal-size);
 }

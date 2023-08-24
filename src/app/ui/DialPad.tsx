@@ -129,81 +129,93 @@ export default memo(function DialPad({ onButtonClick, isHorizontal }: Props) {
             onClick={handleButton1Click}
             onPlayEnd={handleButton1PlayEnd}
             onPlayStart={handleButton1PlayStart}
+            isHorizontal={isHorizontal}
           />
           <DialPadButton
             button="2"
             onClick={handleButton2Click}
             onPlayEnd={handleButton2PlayEnd}
             onPlayStart={handleButton2PlayStart}
-            ruby={isHorizontal ? "" : "ABC"}
+            ruby="ABC"
+            isHorizontal={isHorizontal}
           />
           <DialPadButton
             button="3"
             onClick={handleButton3Click}
             onPlayEnd={handleButton3PlayEnd}
             onPlayStart={handleButton3PlayStart}
-            ruby={isHorizontal ? "" : "DEF"}
+            ruby="DEF"
+            isHorizontal={isHorizontal}
           />
           <DialPadButton
             button="4"
             onClick={handleButton4Click}
             onPlayEnd={handleButton4PlayEnd}
             onPlayStart={handleButton4PlayStart}
-            ruby={isHorizontal ? "" : "GHI"}
+            ruby="GHI"
+            isHorizontal={isHorizontal}
           />
           <DialPadButton
             button="5"
             onClick={handleButton5Click}
             onPlayEnd={handleButton5PlayEnd}
             onPlayStart={handleButton5PlayStart}
-            ruby={isHorizontal ? "" : "JKL"}
+            ruby="JKL"
+            isHorizontal={isHorizontal}
           />
           <DialPadButton
             button="6"
             onClick={handleButton6Click}
             onPlayEnd={handleButton6PlayEnd}
             onPlayStart={handleButton6PlayStart}
-            ruby={isHorizontal ? "" : "MNO"}
+            ruby="MNO"
+            isHorizontal={isHorizontal}
           />
           <DialPadButton
             button="7"
             onClick={handleButton7Click}
             onPlayEnd={handleButton7PlayEnd}
             onPlayStart={handleButton7PlayStart}
-            ruby={isHorizontal ? "" : "PQRS"}
+            ruby="PQRS"
+            isHorizontal={isHorizontal}
           />
           <DialPadButton
             button="8"
             onClick={handleButton8Click}
             onPlayEnd={handleButton8PlayEnd}
             onPlayStart={handleButton8PlayStart}
-            ruby={isHorizontal ? "" : "TUV"}
+            ruby="TUV"
+            isHorizontal={isHorizontal}
           />
           <DialPadButton
             button="9"
             onClick={handleButton9Click}
             onPlayEnd={handleButton9PlayEnd}
             onPlayStart={handleButton9PlayStart}
-            ruby={isHorizontal ? "" : "WXYZ"}
+            ruby="WXYZ"
+            isHorizontal={isHorizontal}
           />
           <DialPadButton
             button="star"
             onClick={handleButtonStarClick}
             onPlayEnd={handleButtonStarPlayEnd}
             onPlayStart={handleButtonStarPlayStart}
+            isHorizontal={isHorizontal}
           />
           <DialPadButton
             button="0"
             onClick={handleButton0Click}
             onPlayEnd={handleButton0PlayEnd}
             onPlayStart={handleButton0PlayStart}
-            ruby={isHorizontal ? "" : "OPER"}
+            ruby="OPER"
+            isHorizontal={isHorizontal}
           />
           <DialPadButton
             button="pound"
             onClick={handleButtonPoundClick}
             onPlayEnd={handleButtonPoundPlayEnd}
             onPlayStart={handleButtonPoundPlayStart}
+            isHorizontal={isHorizontal}
           />
         </DialPadWrapper>
       }
