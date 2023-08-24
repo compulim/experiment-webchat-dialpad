@@ -61,8 +61,6 @@ const BasicFilm = ({ children, className }) => {
   );
 };
 
-// TODO: Move from styleSet to styleSheet.
-
 BasicFilm.defaultProps = {
   children: undefined,
   className: undefined
