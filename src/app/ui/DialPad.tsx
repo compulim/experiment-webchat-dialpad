@@ -40,7 +40,7 @@ function setHasSome<T>(set: Set<T>, anyOf: Iterable<T>): boolean {
 }
 
 function DialPadWrapper({ children, isHorizontal }: { children: ReactNode, isHorizontal: boolean }) {
-  return isHorizontal ? 
+  return !isHorizontal ? 
     <BasicFilm styleSet={ myStyleSet }>{children}</BasicFilm> 
     : <div className="dial-pad__box">{children}</div>;
 }
