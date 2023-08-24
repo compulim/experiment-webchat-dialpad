@@ -36,7 +36,7 @@ function setHasSome<T>(set: Set<T>, anyOf: Iterable<T>): boolean {
 }
 
 function DialPadWrapper({ children, isHorizontal }: { children: ReactNode, isHorizontal: boolean }) {
-  return !isHorizontal ?
+  return isHorizontal ?
     <Composer numItems={ React.Children.count(children) }><BasicFilm>{children}</BasicFilm></Composer>  
     : <div className="dial-pad__box">{children}</div>;
 }

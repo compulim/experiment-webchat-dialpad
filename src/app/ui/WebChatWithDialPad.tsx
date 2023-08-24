@@ -20,7 +20,7 @@ const ChatCore = memo(function ChatCore() {
     [sendMessage]
   );
 
-  const [isHorizontal, setIsHorizontal] = useState(false);
+  const [isHorizontal, setIsHorizontal] = useState(true);
 
   const handleResize = useCallback(() => {
     if (webchatRef.current) {
