@@ -1,24 +1,16 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import React, { useMemo } from 'react';
+import React from 'react';
 import {
     FilmStrip, 
     Flipper, 
-    useStyleSetClassNames,
     useStyleOptions,
     useScrolling,
-    useScrollBarWidth,
-    useNumItems,
-    useHeight,
     Composer
 } from 'react-film';
 
 const BasicFilm = ({ children, className }) => {
-  const [height] = useHeight();
-  const [numItems] = useNumItems();
-  const [scrollBarWidth] = useScrollBarWidth();
   const [scrolling] = useScrolling();
-  const [{ root: rootClassName }] = useStyleSetClassNames();
   const [
     {
       flipperBlurFocusOnClick,
@@ -30,7 +22,7 @@ const BasicFilm = ({ children, className }) => {
     }
   ] = useStyleOptions();
 
-  const contentStyle = useMemo(() => ({ height }), [height]);
+  const contentStyle = { height: 100 };
 
   return (
     <Composer numItems={ React.Children.count(children) }>
@@ -38,17 +30,13 @@ const BasicFilm = ({ children, className }) => {
         className={classNames('react-film__main', { 'react-film__main--scrolling': scrolling })}
         style={contentStyle}
       >
-        {!!numItems && scrollBarWidth !== '100%' && !!showFlipper && (
-          <Flipper aria-label={leftFlipperAriaLabel} blurFocusOnClick={flipperBlurFocusOnClick} mode="left">
-            {leftFlipperText}
-          </Flipper>
-        )}
+        <Flipper aria-label={leftFlipperAriaLabel} blurFocusOnClick={flipperBlurFocusOnClick} mode="left">
+          {leftFlipperText}
+        </Flipper>
         <FilmStrip>{children}</FilmStrip>
-        {!!numItems && scrollBarWidth !== '100%' && !!showFlipper && (
-          <Flipper aria-label={rightFlipperAriaLabel} blurFocusOnClick={flipperBlurFocusOnClick} mode="right">
-            {rightFlipperText}
-          </Flipper>
-        )}
+        <Flipper aria-label={rightFlipperAriaLabel} blurFocusOnClick={flipperBlurFocusOnClick} mode="right">
+          {rightFlipperText}
+        </Flipper>
       </div>
     </Composer>
   );
