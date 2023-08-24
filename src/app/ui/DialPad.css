@@ -55,10 +55,23 @@
 }
 
 .dial-pad__flipper--right::after {
-  width: 1px;
-  height: 32px;
   background: #C8C6C4;
+  content: '';
   filter: blur(2px);
+  height: 32px;
+  top: 0;
+  left: 0;
+  width: 1px;
+}
+
+.dial-pad__flipper--left::after {
+  background: #C8C6C4;
+  content: '';
+  filter: blur(2px);
+  height: 32px;
+  top: 0;
+  right: 0;
+  width: 1px;
 }
 
 .dial-pad__control {
