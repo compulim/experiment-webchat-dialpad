@@ -10,7 +10,7 @@ import {
     useScrollBarWidth,
     useNumItems,
     useHeight,
-    useDir
+    useDir,
 } from 'react-film';
 
 const BasicFilm = ({ children, className }) => {

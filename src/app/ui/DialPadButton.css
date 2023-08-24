@@ -20,6 +20,7 @@
 .dial-pad-button-horizontal {
   height: var(--dial-pad-button-horizontal-size);
   width: var(--dial-pad-button-horizontal-size);
+  margin: 8px 4px;
 }
 
 .dial-pad-button__ruby {
