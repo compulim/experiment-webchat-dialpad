@@ -24,5 +24,11 @@
 }
 
 .dial-pad__control {
-  width: 120px;
+  background: #FFF;
+  border: 1px solid #EDEBE9;
+  border-radius: 100%;
+  height: 30px;
+  margin: 8px;
+  padding: 8px;
+  width: 30px;
 }

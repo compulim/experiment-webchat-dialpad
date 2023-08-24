@@ -212,7 +212,7 @@ export default memo(function DialPad({ onButtonClick, isHorizontal }: Props) {
         </DialPadWrapper>
       }
       <button className="dial-pad__control" onClick={() => {setShowDialPad(!showDialPad)}}>
-        {showDialPad ? 'Hide Dial Pad' : 'Show Dial Pad'}
+        {showDialPad ? 'H' : 'S'}
       </button>
     </div>
   );
