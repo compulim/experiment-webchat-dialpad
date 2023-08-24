@@ -25,6 +25,35 @@
   width: 100%;
 }
 
+.dial-pad__box--horizontal {
+  height: 48px;
+  width: 360px;
+}
+
+.dial-pad__flipper--left {
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  height: 28px;
+  width: 28px;
+  z-index: 999;
+  background: #FFF;
+  border: 0px;
+  outline: 0px;
+}
+
+.dial-pad__flipper--right {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  height: 28px;
+  width: 28px;
+  z-index: 999;
+  background: #FFF;
+  border: 0px;
+  outline: 0px;
+}
+
 .dial-pad__control {
   background: #FFF;
   border: 1px solid #EDEBE9;

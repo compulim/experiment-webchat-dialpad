@@ -50,7 +50,7 @@ export const Flipper = ({ 'aria-label': ariaLabel, blurFocusOnClick, mode }) => 
   if (hide) {
     return null;
   }
-  
+
   return (
     <button
       aria-label={ariaLabel || (left ? 'left' : 'right')}
@@ -58,6 +58,7 @@ export const Flipper = ({ 'aria-label': ariaLabel, blurFocusOnClick, mode }) => 
       onKeyDown={handleKeyDown}
       ref={buttonRef}
       type="button"
+      className={`dial-pad__flipper--${mode}`}
     >
       { mode === 'left' ? '<' : '>' }
     </button>
