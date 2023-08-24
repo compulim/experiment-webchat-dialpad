@@ -37,7 +37,7 @@
   height: 32px;
   width: 32px;
   z-index: 999;
-  background: #FFF;
+  background: #FAF9F8;
   border: 0px;
   outline: 0px;
 }
@@ -59,6 +59,7 @@
   content: '';
   filter: blur(2px);
   height: 32px;
+  position: absolute;
   top: 0;
   left: 0;
   width: 1px;
@@ -69,6 +70,7 @@
   content: '';
   filter: blur(2px);
   height: 32px;
+  position: absolute;
   top: 0;
   right: 0;
   width: 1px;
